@@ -15,7 +15,10 @@ from vit_shapley.modules.classifier_masked import ClassifierMasked
 from vit_shapley.modules.explainer import Explainer
 from vit_shapley.modules.explainer_unet import ExplainerUNet
 from vit_shapley.modules.surrogate import Surrogate
+import sys
 
+if sys.platform == "win32":
+     os.environ["PL_TORCH_DISTRIBUTED_BACKEND"] = "gloo"
 
 def set_datamodule(datasets,
                    dataset_location,
